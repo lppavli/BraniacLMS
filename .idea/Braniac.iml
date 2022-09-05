@@ -11,6 +11,7 @@
     <option name="TEMPLATE_FOLDERS">
       <list>
         <option value="$MODULE_DIR$/mainapp/templates" />
+        <option value="$MODULE_DIR$/authapp/templates" />
       </list>
     </option>
   </component>
