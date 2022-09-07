@@ -1,3 +1,3 @@
 # Проект Braniac
 
-первый проект на Django
+LMS на Django
