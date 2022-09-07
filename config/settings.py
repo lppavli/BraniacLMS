@@ -1,8 +1,13 @@
+import os
 from pathlib import Path
+
+from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = "django-insecure-5cs#bb0i4uz(!d9p$najv545zf062hz1l%v=rj%=izdr!%n(%3"
+load_dotenv()
+
+SECRET_KEY = os.environ["SECRET_KEY"]
 
 DEBUG = True
 
@@ -19,6 +24,7 @@ INSTALLED_APPS = [
     "social_django",
     "mainapp",
     "authapp",
+    "crispy_forms",
 ]
 
 MIDDLEWARE = [
@@ -124,8 +130,15 @@ MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 
 AUTHENTICATION_BACKENDS = (
     "social_core.backends.github.GithubOAuth2",
+    'social_core.backends.vk.VKOAuth2',
     "django.contrib.auth.backends.ModelBackend",
 )
 
 SOCIAL_AUTH_GITHUB_KEY = "a247a1417d4c0b1b1043"
 SOCIAL_AUTH_GITHUB_SECRET = "105704ede07cb385a58e617597f0e51b28db586d"
+
+SOCIAL_AUTH_VK_OAUTH2_KEY = '51417772'
+SOCIAL_AUTH_VK_OAUTH2_SECRET = 'cSUvSxO21Yze2OGbv67r'
+
+SOCIAL_AUTH_VK_OAUTH2_SCOPE = ['notify', 'friends', 'email']
+CRISPY_TEMPLATE_PACK = "bootstrap4"
