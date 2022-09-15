@@ -124,10 +124,10 @@ class TestCoursesWithMock(TestCase):
     )
 
     def test_page_open_detail(self):
-        course_obj = mainapp_models.Courses.objects.get(pk=1)
+        course_obj = mainapp_models.Courses.objects.get(pk=2)
         path = reverse("mainapp:courses_detail", args=[course_obj.pk])
         with open(
-            "mainapp/fixtures/006_feedback_list_1.bin", "rb"
+            "mainapp/fixtures/006_feedback_list_2.bin", "rb"
         ) as inpf, mock.patch("django.core.cache.cache.get") as mocked_cache:
             mocked_cache.return_value = pickle.load(inpf)
             result = self.client.get(path)
