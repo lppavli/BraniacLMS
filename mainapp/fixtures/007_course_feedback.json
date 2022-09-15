@@ -1,0 +1,14 @@
+[
+  {
+    "model": "mainapp.coursefeedback",
+    "pk": 7,
+    "fields": {
+      "course": 2,
+      "user": 1,
+      "feedback": "�����",
+      "rating": 5,
+      "created": "2022-09-15T06:35:44.715Z",
+      "deleted": false
+    }
+  }
+]
