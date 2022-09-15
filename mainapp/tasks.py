@@ -22,4 +22,3 @@ def send_feedback_mail(message_form: Dict[str, Union[int, str]]) -> None:
         fail_silently=False,
     )
     return None
-

@@ -24,7 +24,7 @@ from django.views.generic import (
     View,
 )
 
-from mainapp import mainapp_forms
+from mainapp import forms as mainapp_forms
 from mainapp import models as mainapp_models
 from mainapp import tasks as mainapp_tasks
 
@@ -111,6 +111,15 @@ class CoursesDetailView(TemplateView):
             cache.set(
                 f"feedback_list_{pk}", context["feedback_list"], timeout=300
             )  # 5 minutes
+
+            # Archive object for tests --->
+            # import pickle
+            # with open(
+            #     f"mainapp/fixtures/006_feedback_list_{pk}.bin", "wb"
+            # ) as outf:
+            #     pickle.dump(context["feedback_list"], outf)
+            # <--- Archive object for tests
+
         else:
             context["feedback_list"] = cached_feedback
 
@@ -194,4 +203,3 @@ class LogDownloadView(UserPassesTestMixin, View):
 
     def get(self, *args, **kwargs):
         return FileResponse(open(settings.LOG_FILE, "rb"))
-
